@@ -1,12 +1,12 @@
-const InstagramIcon = () => (
+const InstagramIcon = ({ style }) => (
     <svg
       aria-label="Instagram"
       className="x1lliihq x1n2onr6 x5n08af"
-      fill="#000"
       height="29"
       role="img"
       viewBox="32 4 113 32"
       width="103"
+      style={style}
     >
       <title>Instagram</title>
       <path
