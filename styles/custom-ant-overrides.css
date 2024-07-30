@@ -1,0 +1,13 @@
+
+.ant-btn:hover, .ant-btn:focus, .ant-btn:active {
+    background-color: inherit !important;
+    border-color: inherit !important;
+    color: inherit !important;
+  }
+  
+  .ant-menu-item:hover, .ant-menu-item-active, .ant-menu-item-selected, .ant-menu-item-open {
+    background-color: inherit !important;
+    border-color: inherit !important;
+    color: inherit !important;
+  }
+  
