@@ -27,10 +27,10 @@ const AppLayout = ({ children }) => {
                             </a>
                         </Link>
                         <Menu.Item key="1" icon={<HomeOutlined style={{ color: '#000', fontSize: '24px' }} />}>
-                            Trang chủ
+                            <Link href="/">Trang chủ</Link>
                         </Menu.Item>
                         <Menu.Item key="2" icon={<SearchOutlined style={{ color: '#000', fontSize: '24px' }} />}>
-                            Tìm kiếm
+                            <Link href="/search">Tìm kiếm</Link>
                         </Menu.Item>
                         <Menu.Item key="3" icon={<CompassOutlined style={{ color: '#000', fontSize: '24px' }} />}>
                             Khám phá
