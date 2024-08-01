@@ -7,6 +7,7 @@ body {
 .ant-menu-item-selected {
     background-color: #e0e0e0 !important; 
     color: #000 !important; 
+    font-weight: bold;
 }
 
 .ant-menu-item:hover {
