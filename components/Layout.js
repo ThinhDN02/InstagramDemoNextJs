@@ -68,7 +68,7 @@ const AppLayout = ({ children }) => {
                             <Link href="/">Trang chủ</Link>
                         </Menu.Item>
                         <Menu.Item key="2" icon={<SearchOutlined style={{ fontSize: '24px' }} />}>
-                            <Link href="/search">Tìm kiếm</Link>
+                            <Link href="/searchdemo">Tìm kiếm</Link>
                         </Menu.Item>
                         <Menu.Item key="3" icon={<CompassOutlined style={{ fontSize: '24px' }} />}>
                             <Link href="/explore">Khám phá</Link>
