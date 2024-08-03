@@ -31,7 +31,7 @@ const SearchPage = () => {
     return (
         <AppLayout>
             <div className={styles.searchContainer}>
-                <img src='https://instagram.fdub3-2.fna.fbcdn.net/v/t51.2885-19/340312633_531296959165743_1080518946684306407_n.jpg?stp=dst-jpg_e0_s150x150&_nc_ht=instagram.fdub3-2.fna.fbcdn.net&_nc_cat=103&_nc_ohc=XyIFigegUxUQ7kNvgHM7Qm3&gid=1168263612784d38b0114516729df907&edm=AHG7ALcBAAAA&ccb=7-5&oh=00_AYAQJ1yH1gUgG1M3OiDZEsjetx0jAOIRnCf8x5SfxaCYrw&oe=66B263E6&_nc_sid=c9086e'></img>
+                <img src='https://scontent-iad3-2.cdninstagram.com/v/t51.2885-19/449724899_920072209887311_7724917238397384747_n.jpg?stp=dst-jpg_s150x150&_nc_ht=scontent-iad3-2.cdninstagram.com&_nc_cat=111&_nc_ohc=oQozPtG0VgQQ7kNvgGpN4-1&gid=390aad14a9aa4c1983f0772e94e26a1d&edm=AHFUoAoBAAAA&ccb=7-5&oh=00_AYDgbasU7OY8ifBoBCAiyvkEM-bo3kdvQe-TUx2YsRQvZQ&oe=66B3ADF5&_nc_sid=c39c95'></img>
                 <h1>Danh sách người dùng</h1>
                 {loading ? (
                     <Spin tip="Đang tải dữ liệu..." />

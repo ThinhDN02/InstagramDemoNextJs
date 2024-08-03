@@ -1,6 +1,7 @@
 import { useState } from 'react';
-import SearchComponent from '../components/SearchComponent';
 import { List, Avatar, Spin, Typography } from 'antd';
+import { useRouter } from 'next/router'; // Import useRouter from next/router
+import SearchComponent from '../components/SearchComponent';
 import styles from '../styles/search.module.css';
 import AppLayout from '../components/Layout';
 const { Title } = Typography;
@@ -9,6 +10,7 @@ const SearchPage = () => {
     const [query, setQuery] = useState('');
     const [results, setResults] = useState([]);
     const [loading, setLoading] = useState(false);
+    const router = useRouter(); // Initialize useRouter
 
     const handleSearch = async (value) => {
         if (!value) return;
@@ -30,6 +32,10 @@ const SearchPage = () => {
         }
     };
 
+    const handleProfileClick = (username) => {
+        router.push(`/profile/${username}`); // Use router.push to navigate to profile page
+    };
+
     return (
         <AppLayout>
             <div className={styles.searchContainer}>
@@ -46,7 +52,11 @@ const SearchPage = () => {
                                     <List.Item>
                                         <List.Item.Meta
                                             avatar={<Avatar src={item.profile_pic_url} />}
-                                            title={<a href={`/profile/${item.username}`}>{item.full_name}</a>}
+                                            title={
+                                                <a onClick={() => handleProfileClick(item.username)}>
+                                                    {item.full_name}
+                                                </a>
+                                            }
                                             description={`@${item.username}`}
                                         />
                                     </List.Item>
