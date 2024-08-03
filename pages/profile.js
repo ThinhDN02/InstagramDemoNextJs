@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { Avatar, Card, Col, Row, Statistic, Typography, Spin } from 'antd';
-import AppLayout from '../../components/Layout';
+import AppLayout from '../components/Layout';
 
 const { Meta } = Card;
 const { Title, Text } = Typography;
@@ -74,7 +74,7 @@ const Profile = ({ username }) => {
           <div style={{ marginLeft: '20px' }}>
             <Title level={2}>{user.full_name || 'Unknown User'}</Title>
             <Text>@{user.username || 'username'}</Text>
-            <div style={{ marginTop: '10px' }}>
+            <div style={{ marginTop: '10px', display: 'flex', gap: '20px' }}>
               <Statistic title="Posts" value={user.post_count || 0} />
               <Statistic title="Followers" value={user.follower_count || 0} />
               <Statistic title="Following" value={user.following_count || 0} />
@@ -94,8 +94,7 @@ const Profile = ({ username }) => {
                     <span key="likes">Likes: {post.like_count || 0}</span>,
                     <span key="comments">Comments: {post.comment_count || 0}</span>,
                   ]}
-                >
-                </Card>
+                />
               </Col>
             ))
           ) : (
@@ -111,7 +110,7 @@ const Profile = ({ username }) => {
 
 export async function getServerSideProps(context) {
   const { username } = context.query;
-  const finalUsername = username;
+  const finalUsername = username || 'thinhdn02';
 
   return {
     props: {

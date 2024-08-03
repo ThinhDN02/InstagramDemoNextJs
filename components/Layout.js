@@ -21,27 +21,25 @@ const AppLayout = ({ children }) => {
     const currentPath = router.pathname;
 
     const getMenuKey = (path) => {
-        switch (path) {
-            case '/':
-                return '1';
-            case '/search':
-                return '2';
-            case '/explore':
-                return '3';
-            case '/reels':
-                return '4';
-            case '/messages':
-                return '5';
-            case '/notifications':
-                return '6';
-            case '/create':
-                return '7';
-            case '/profile':
-                return '8';
-            default:
-                return '1';
+        if (path.startsWith('/profile')) {
+            return '8';
+        } else if (path.startsWith('/search')) {
+            return '2';
+        } else if (path.startsWith('/explore')) {
+            return '3';
+        } else if (path.startsWith('/reels')) {
+            return '4';
+        } else if (path.startsWith('/messages')) {
+            return '5';
+        } else if (path.startsWith('/notifications')) {
+            return '6';
+        } else if (path.startsWith('/create')) {
+            return '7';
+        } else {
+            return '1';
         }
     };
+    
 
     return (
         <Layout style={{ minHeight: '100vh' }}>
@@ -86,7 +84,7 @@ const AppLayout = ({ children }) => {
                             <Link href="/create">Tạo</Link>
                         </Menu.Item>
                         <Menu.Item key="8" icon={<UserOutlined style={{ fontSize: '24px' }} />}>
-                            <Link href="/profile/thinhdn02">Profile</Link>
+                            <Link href="/profile">Profile</Link>
                         </Menu.Item>
                     </Menu>
                 </Sider>

@@ -22,7 +22,6 @@ export default async function handler(req, res) {
 
         const user = data.data.user || {};
         const posts = data.data.items || [];
-        console.log('API Data:', posts);
         res.status(200).json({ user, posts });
     } catch (error) {
         console.error('Error fetching data:', error);

@@ -33,7 +33,7 @@ const SearchPage = () => {
     };
 
     const handleProfileClick = (username) => {
-        router.push(`/profile/${username}`); // Use router.push to navigate to profile page
+        router.push(`/profile?username=${username}`); 
     };
 
     return (
