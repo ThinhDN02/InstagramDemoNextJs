@@ -86,7 +86,7 @@ const AppLayout = ({ children }) => {
                             <Link href="/create">Tạo</Link>
                         </Menu.Item>
                         <Menu.Item key="8" icon={<UserOutlined style={{ fontSize: '24px' }} />}>
-                            <Link href="/profile/username=thinhdn02">Profile</Link>
+                            <Link href="/profile/">Profile</Link>
                         </Menu.Item>
                     </Menu>
                 </Sider>
