@@ -72,7 +72,7 @@ export async function getServerSideProps(context) {
     const { username } = context.query;
     const finalUsername = username || 'thinhdn02';
 
-    const apiUrl = process.env.NEXT_PUBLIC_API_URL;
+    const apiUrl = 'https://instagram-demo-next-js.vercel.app/';
     
     if (!apiUrl) {
         return {
