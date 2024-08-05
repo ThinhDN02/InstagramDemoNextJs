@@ -1,50 +1,10 @@
-import { useState, useEffect } from 'react';
-import { Avatar, Card, Col, Row, Statistic, Typography, Spin } from 'antd';
+import { Avatar, Card, Col, Row, Statistic, Typography } from 'antd';
 import AppLayout from '../components/Layout';
 
 const { Meta } = Card;
 const { Title, Text } = Typography;
 
-const Profile = ({ username }) => {
-    const [user, setUser] = useState(null);
-    const [posts, setPosts] = useState([]);
-    const [loading, setLoading] = useState(true);
-    const [error, setError] = useState(null);
-
-    useEffect(() => {
-        const fetchProfileData = async () => {
-            if (!username) return;
-
-            setLoading(true);
-
-            try {
-                const response = await fetch(`/api/profile?username=${encodeURIComponent(username)}`);
-                if (!response.ok) throw new Error('Network response was not ok');
-                const data = await response.json();
-
-                setUser(data.user || {});
-                setPosts(Array.isArray(data.posts) ? data.posts : []);
-            } catch (error) {
-                console.error('Error fetching data:', error);
-                setError('Unable to load profile data');
-            } finally {
-                setLoading(false);
-            }
-        };
-
-        fetchProfileData();
-    }, [username]);
-
-    if (loading) {
-        return (
-            <AppLayout>
-                <div style={{ padding: '20px', textAlign: 'center' }}>
-                    <Spin tip="Đang tải dữ liệu..." />
-                </div>
-            </AppLayout>
-        );
-    }
-
+const Profile = ({ user, posts, error }) => {
     if (error) {
         return (
             <AppLayout>
@@ -112,11 +72,42 @@ export async function getServerSideProps(context) {
     const { username } = context.query;
     const finalUsername = username || 'thinhdn02';
 
-    return {
-        props: {
-            username: finalUsername,
-        }
-    };
+    const apiUrl = process.env.NEXT_PUBLIC_API_URL;
+    console.log('API URL:', apiUrl); 
+    
+    if (!apiUrl) {
+        return {
+            props: {
+                user: null,
+                posts: [],
+                error: 'API URL is not set in environment variables.',
+            }
+        };
+    }
+
+    try {
+        const response = await fetch(`${apiUrl}/api/profile?username=${encodeURIComponent(finalUsername)}`);
+        if (!response.ok) throw new Error('Network response was not ok');
+        const data = await response.json();
+
+        return {
+            props: {
+                user: data.user || null,
+                posts: Array.isArray(data.posts) ? data.posts : [],
+                error: null,
+            }
+        };
+    } catch (error) {
+        console.error('Error fetching data:', error);
+        return {
+            props: {
+                user: null,
+                posts: [],
+                error: 'Unable to load profile data',
+            }
+        };
+    }
 }
+
 
 export default Profile;
