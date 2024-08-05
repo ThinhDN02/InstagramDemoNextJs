@@ -73,7 +73,6 @@ export async function getServerSideProps(context) {
     const finalUsername = username || 'thinhdn02';
 
     const apiUrl = process.env.NEXT_PUBLIC_API_URL;
-    console.log('API URL:', apiUrl); 
     
     if (!apiUrl) {
         return {
