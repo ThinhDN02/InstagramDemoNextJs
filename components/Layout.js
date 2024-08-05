@@ -39,7 +39,7 @@ const AppLayout = ({ children }) => {
             return '1';
         }
     };
-    
+
 
     return (
         <Layout style={{ minHeight: '100vh' }}>
@@ -57,6 +57,7 @@ const AppLayout = ({ children }) => {
                         }}
                         theme="light"
                     >
+                        <h2>hiện tại hình ảnh đang load hên xui</h2>
                         <Link href="/" legacyBehavior>
                             <a style={{ display: 'flex', alignItems: 'center', height: '120px', paddingLeft: 20 }}>
                                 <InstagramIcon style={{ color: '#000', width: '120px', height: 'auto' }} />
