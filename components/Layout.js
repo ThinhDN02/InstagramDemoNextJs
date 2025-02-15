@@ -98,7 +98,7 @@ const AppLayout = ({ children }) => {
                             color: '#000',
                         }}
                     >
-                        <p>Hiện tại hình ảnh đang load hên xui</p>
+                        <p>Hiện tại hình ảnh đang load lỗi</p>
                         {children}
                     </Content>
                 </Layout>
